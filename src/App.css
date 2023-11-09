@@ -1,0 +1,108 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+body {
+  font-family: sans-serif;
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  border-radius: 0px;
+}
+
+.container {
+  background-image: url("../public/assets/qbot-bg.png");
+  /* background-position:  */
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  /* width: 1366px; */
+  height: 100vh;
+  flex-direction: column;
+  border-radius: 0px;
+}
+.btn {
+  border: none;
+  align-self: center;
+  width: 150px;
+  padding: 6px;
+  margin: 1px 0px;
+  outline: none;
+  background-color: rgb(19, 174, 94);
+  text-align: center;
+  font-size: 24px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  -webkit-box-shadow: 0px 2px 8px -3px #000000;
+  box-shadow: 0px 2px 8px -3px #000000;
+  transition: 0.2s all;
+  text-decoration: none;
+}
+.btn:active {
+  background-color: rgb(5, 72, 195);
+  transform: scale(1.1);
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  height: auto;
+  flex-direction: column;
+  text-align: center;
+  padding: 50px 10px;
+}
+.logo {
+  align-self: center;
+}
+.staticImg {
+  align-self: center;
+  position: relative;
+  bottom: -65px;
+}
+.staticTxt {
+  align-self: center;
+  position: relative;
+  bottom: -65px;
+}
+.addv {
+  width: 50%;
+  align-self: center;
+  position: relative;
+  bottom: -65px;
+}
