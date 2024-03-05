@@ -11,7 +11,7 @@ const Other = () => {
   const [token, setToken] = useState("");
   const getFields = async () => {
     const res = await axios
-      .get("http://192.168.60.200:8001/count/get/option?base=single")
+      .get("http://192.168.60.81:8000/count/get/option?base=single")
       .then(function (response) {
         return response?.data?.detail;
       })
@@ -58,8 +58,9 @@ const Other = () => {
     const char = param.join("").toString();
     const params = char.slice(0, -1);
     if (params) {
+      console.log("inside params 61");
       const res = await axios
-        .get(`http://192.168.60.200:8001/count/create/?base=single&${params}`)
+        .get(`http://192.168.60.81:8000/count/create/?base=single&${params}`)
         .then(function (response) {
           return response;
         })
@@ -147,7 +148,7 @@ const Other = () => {
         <div className="header">
           <img
             className="logo"
-            src="http://192.168.60.200:8001/dekstop/logo/read/logo.png"
+            src="http://192.168.60.81:8000/dekstop/logo/read/logo.png"
             alt=""
             width="300px"
           />
@@ -180,7 +181,11 @@ const Other = () => {
           {/* <input type="submit" /> */}
           <br />
           <br />
-          <button className="rbtn" type="submit">
+          <button
+            className="rbtn"
+            type="submit"
+            onClick={() => history.push("/path1")}
+          >
             Ok
           </button>
         </form>
@@ -189,30 +194,11 @@ const Other = () => {
 
         <img className="staticImg" src="assets/qbot.png" width="120px" />
         <h3 className="staticTxt">Queue Management Solution</h3>
-        <marquee className="addv">
+        {/* <marquee className="addv">
           A product of Transworld Mercantile Corporation. For more information
           please visit <strong>www.transworldbd.com</strong> or call{" "}
           <strong>+880 9613848484, +880 1860877300</strong>
-        </marquee>
-      </div>
-
-      <div style={{ display: "none" }}>
-        <div className="printContainer" ref={componentRef}>
-          <img
-            className="pImg"
-            src="http://192.168.60.200:8001/dekstop/logo/read/logo.png"
-            alt=""
-          />
-          <p className="pName">{localStorage.getItem("name")}</p>
-          <p className="pToken">
-            {token < 10
-              ? "T-00" + token
-              : token < 100
-              ? "T-0" + token
-              : "T-" + token}
-          </p>
-          <p className="pDate">{date()}</p>
-        </div>
+        </marquee> */}
       </div>
     </div>
   );

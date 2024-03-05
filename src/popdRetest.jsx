@@ -12,7 +12,7 @@ const ReTest = () => {
   const state = useParams();
   const getFields = async () => {
     const res = await axios
-      .get("http://192.168.60.200:8002/count/get/option?base=select")
+      .get("http://192.168.60.81:8000/count/get/option?base=select")
       .then(function (response) {
         return response?.data?.detail;
       })
@@ -62,7 +62,7 @@ const ReTest = () => {
       if (params) {
         const res = await axios
           .get(
-            `http://192.168.60.200:8002/count/special/create/?base=select&${params}`
+            `http://192.168.60.81:8000/count/special/create/?base=select&${params}`
           )
           .then(function (response) {
             return response;
@@ -82,7 +82,7 @@ const ReTest = () => {
     } else {
       if (params) {
         const res = await axios
-          .get(`http://192.168.60.200:8002/count/create/?base=select&${params}`)
+          .get(`http://192.168.60.81:8000/count/create/?base=select&${params}`)
           .then(function (response) {
             return response;
           })
@@ -120,7 +120,7 @@ const ReTest = () => {
     const params = char.slice(0, -1);
     if (params) {
       const res = await axios
-        .get(`http://192.168.60.200:8002/count/create/?base=select&${params}`)
+        .get(`http://192.168.60.81:8000/count/create/?base=select&${params}`)
         .then(function (response) {
           return response;
         })
@@ -208,7 +208,7 @@ const ReTest = () => {
         {/* <div className="header">
           <img
             className="logo"
-            src="http://192.168.60.200:8001/dekstop/logo/read/logo.png"
+            src="http://192.168.60.81:8000/dekstop/logo/read/logo.png"
             alt=""
             width="300px"
           />
@@ -275,14 +275,12 @@ const ReTest = () => {
             Queue Management Solution
           </p>
         </div>
-        <marquee className="addv">
+        {/* <marquee className="addv">
           A product of Transworld Mercantile Corporation. For more information
           please visit <strong>www.transworldbd.com</strong> or call{" "}
           <strong>+880 9613848484, +880 1860877300</strong>
-        </marquee>
+        </marquee> */}
       </div>
-
-  
     </div>
   );
 };

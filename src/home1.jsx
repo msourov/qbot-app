@@ -13,7 +13,7 @@ const Home = () => {
   const [token, setToken] = useState("");
   useEffect(async () => {
     const res = await axios
-      .get("http://192.168.60.200:8001/dekstop/name/show")
+      .get("http://192.168.60.81:8000/dekstop/name/show")
       .then(function (response) {
         // handle success
         // console.log(response)
@@ -39,7 +39,7 @@ const Home = () => {
   });
   const handlePrint = async () => {
     const res = await axios
-      .get("http://192.168.60.200:8001/count/create/?base=all")
+      .get("http://192.168.60.81:8000/count/create/?base=all")
       .then(function (response) {
         // handle success
         return response;
@@ -100,7 +100,7 @@ const Home = () => {
         <div className="header">
           <img
             className="logo"
-            src="http://192.168.60.200:8001/dekstop/logo/read/logo.png"
+            src="http://192.168.60.81:8000/dekstop/logo/read/logo.png"
             alt=""
             width="80px"
           />
@@ -152,11 +152,11 @@ const Home = () => {
             Queue Management Solution
           </p>
         </div>
-        <marquee className="addv">
+        {/* <marquee className="addv">
           A product of Transworld Mercantile Corporation. For more information
           please visit <strong>www.transworldbd.com</strong> or call{" "}
           <strong>+880 9613848484, +880 1860877300</strong>
-        </marquee>
+        </marquee> */}
       </div>
     </>
   );

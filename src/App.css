@@ -59,13 +59,15 @@ body {
 .btn {
   border: none;
   align-self: center;
-  width: 150px;
+  width: 25%;
   padding: 6px;
+  padding-block: 1em;
   margin: 1px 0px;
   outline: none;
   background-color: rgb(19, 174, 94);
   text-align: center;
-  font-size: 24px;
+  font-size: 2.15rem;
+  font-weight: 600;
   border-radius: 10px;
   color: #fff;
   cursor: pointer;

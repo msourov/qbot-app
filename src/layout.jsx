@@ -12,7 +12,7 @@ const Layout = () => {
   const [token, setToken] = useState("");
   useEffect(async () => {
     const res = await axios
-      .get("http://192.168.60.200:8001/dekstop/name/show")
+      .get("http://192.168.60.81:8000/dekstop/name/show")
       .then(function (response) {
         // handle success
         return response;

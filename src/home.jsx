@@ -10,9 +10,9 @@ const Home = () => {
   const [options2, setOptions2] = useState("");
 
   const getData = async () => {
-    const res = await axios.get("http://192.168.60.200:8001/dekstop/name/show");
+    const res = await axios.get("http://192.168.60.81:8000/dekstop/name/show");
     const res1 = await axios
-      .get("http://192.168.60.200:8001/dekstop/all/view")
+      .get("http://192.168.60.81:8000/dekstop/all/view")
       .then(function (response) {
         // handle success
         return response;
@@ -25,7 +25,7 @@ const Home = () => {
         // always executed
       });
     const res2 = await axios
-      .get("http://192.168.60.200:8002/dekstop/all/view")
+      .get("http://192.168.60.81:8000/dekstop/all/view")
       .then(function (response) {
         // handle success
         return response;
@@ -41,9 +41,9 @@ const Home = () => {
     //   localStorage.setItem("name", res?.data?.name);
     //   localStorage.setItem("status", res?.data?.status);
     // }
-    if (res2.status === 200) {
-      setOptions2(res2?.data);
-    }
+    // if (res2.status === 200) {
+    //   setOptions2(res2?.data);
+    // }
     if (res1.status === 200) {
       setOptions(res1?.data);
     }
@@ -99,9 +99,9 @@ const Home = () => {
         <div className="header">
           <img
             className="logo"
-            src="http://192.168.60.200:8001/dekstop/logo/read/logo.png"
+            src="http://192.168.60.81:8000/dekstop/logo/read/logo.png"
             alt=""
-            width="150px"
+            width="350px"
           />
         </div>
         <div
@@ -127,13 +127,13 @@ const Home = () => {
                         {item?.name}
                       </button>
                       {/* <br /> */}
-                      <button
+                      {/*<button
                         className="btn"
                         onClick={() => history.push("/path2/special")}
                         style={{ marginBottom: "20px" }}
                       >
                         S-{item?.name}
-                      </button>
+                      </button> */}
                     </>
                   ) : null}
                   {item?.categories === "single" ? (
@@ -148,6 +148,32 @@ const Home = () => {
                 </>
               ))
             : null}
+          {
+            <button
+              class="btn"
+              onClick={() =>
+                axios.get(
+                  "http://192.168.60.81:8000/count/create?base=select&sub=wd"
+                )
+              }
+              style={{ marginBottom: "20px" }}
+            >
+              Withdraw
+            </button>
+          }
+          {
+            <button
+              class="btn"
+              onClick={() =>
+                axios.get(
+                  "http://192.168.60.81:8000/count/create?base=select&sub=dp"
+                )
+              }
+              style={{ marginBottom: "20px" }}
+            >
+              Deposit
+            </button>
+          }
           {options2
             ? options2?.map((item) => (
                 <>
@@ -164,12 +190,12 @@ const Home = () => {
                         {item?.name}
                       </button>
                       {/* <br /> */}
-                      <button
+                      {/* <button
                         className="btn"
                         onClick={() => history.push("/path4/special")}
                       >
                         S-{item?.name}
-                      </button>
+                      </button>*/}
                     </>
                   ) : null}
                   {item?.categories === "single" ? (
@@ -212,30 +238,11 @@ const Home = () => {
             Queue Management Solution
           </p>
         </div>
-        <marquee className="addv">
+        {/* <marquee className="addv">
           A product of Transworld Mercantile Corporation. For more information
           please visit <strong>www.transworldbd.com</strong> or call{" "}
           <strong>+880 9613848484, +880 1860877300</strong>
-        </marquee>
-      </div>
-
-      <div style={{ display: "none" }}>
-        <div className="printContainer" ref={componentRef}>
-          <img
-            className="pImg"
-            src="http://192.168.60.200:8001/dekstop/logo/read/logo.png"
-            alt=""
-          />
-          <p className="pName">{localStorage.getItem("name")}</p>
-          <p className="pToken">
-            {token < 10
-              ? "T-00" + token
-              : token < 100
-              ? "T-0" + token
-              : "T-" + token}
-          </p>
-          <p className="pDate">{date()}</p>
-        </div>
+        </marquee> */}
       </div>
     </>
   );

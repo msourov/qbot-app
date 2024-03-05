@@ -13,8 +13,9 @@ const ReTest = () => {
   console.log("state", state);
   const getFields = async () => {
     const res = await axios
-      .get("http://192.168.60.200:8001/count/get/option?base=select")
+      .get("http://192.168.60.81:8000/count/get/option?base=select")
       .then(function (response) {
+        console.log("response.data.detail", response.data.detail);
         return response?.data?.detail;
       })
       .catch(function (error) {
@@ -28,12 +29,13 @@ const ReTest = () => {
   }, []);
   const handleChange = (event) => {
     var checkboxes = document.getElementsByName("check");
-    checkboxes.forEach((item) => {
-      if (item !== event.target) item.checked = false;
-    });
+    // checkboxes.forEach((item) => {
+    //   if (item !== event.target) item.checked = false;
+    // });
     const name = event.target.id;
     const value = event?.target?.checked;
-    setInputs({ [name]: value });
+    // setInputs({ [name]: value });
+    setInputs((values) => ({ ...values, [name]: value }));
     // setInputs(values => ({...values, [name]: value}))
   };
   const handleChangeM = (event) => {
@@ -61,11 +63,12 @@ const ReTest = () => {
     });
     const char = param.join("").toString();
     const params = char.slice(0, -1);
+
     if (state === "special") {
       if (params) {
         axios
           .get(
-            `http://192.168.60.200:8001/count/special/create/?base=select&${params}`
+            `http://192.168.60.81:8000/count/special/create/?base=select&${params}`
           )
           .then(function (response) {
             if (response.status === 200) {
@@ -84,7 +87,7 @@ const ReTest = () => {
     } else {
       if (params) {
         axios
-          .get(`http://192.168.60.200:8001/count/create/?base=select&${params}`)
+          .get(`http://192.168.60.81:8000/count/create/?base=select&${params}`)
           .then(function (response) {
             if (response.status === 200) {
               setToken(response.data);
@@ -121,7 +124,7 @@ const ReTest = () => {
     const params = char.slice(0, -1);
     if (params) {
       const res = await axios
-        .get(`http://192.168.60.200:8001/count/create/?base=select&${params}`)
+        .get(`http://192.168.60.81:8000/count/create/?base=select&${params}`)
         .then(function (response) {
           return response;
         })
@@ -209,7 +212,7 @@ const ReTest = () => {
         {/* <div className="header">
           <img
             className="logo"
-            src="http://192.168.60.200:8001/dekstop/logo/read/logo.png"
+            src="http://192.168.60.81:8000/dekstop/logo/read/logo.png"
             alt=""
             width="300px"
           />
@@ -230,7 +233,7 @@ const ReTest = () => {
                   <br />
               </>
             ))} */}
-          {fields?.map((item) => (
+          {fields?.slice(2)?.map((item) => (
             <label className="icontainer">
               {item?.name}
               <input
@@ -276,11 +279,11 @@ const ReTest = () => {
             Queue Management Solution
           </p>
         </div>
-        <marquee className="addv">
+        {/* <marquee className="addv">
           A product of Transworld Mercantile Corporation. For more information
           please visit <strong>www.transworldbd.com</strong> or call{" "}
           <strong>+880 9613848484, +880 1860877300</strong>
-        </marquee>
+        </marquee> */}
       </div>
     </div>
   );
